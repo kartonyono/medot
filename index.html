@@ -1,0 +1,269 @@
+<!doctype html>
+<html ⚡ lang="id">
+<head>
+  <meta charset="utf-8">
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <title>NewsHub - Berita Terkini & Terpercaya</title>
+  <link rel="canonical" href="https://newshub.example.com">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  
+  <!-- AMP Components -->
+  <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+  <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+  <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+  
+  <style amp-custom>
+    :root {
+      --primary-color: #1a237e;
+      --secondary-color: #4a148c;
+      --accent-color: #d50000;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .header {
+      background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    .date-time {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .nav-link:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .featured-carousel {
+      margin: 2rem 0;
+      position: relative;
+    }
+
+    .carousel-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      padding: 2rem;
+      color: white;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem 5%;
+    }
+
+    .news-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .news-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .category-label {
+      background: var(--accent-color);
+      color: white;
+      padding: 0.3rem 1rem;
+      display: inline-block;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin: 1rem;
+    }
+
+    .breaking-news {
+      background: var(--accent-color);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: bold;
+      margin: 1rem 0;
+    }
+
+    footer {
+      background: var(--primary-color);
+      color: white;
+      padding: 3rem 5%;
+      margin-top: 3rem;
+    }
+
+    /* Mobile Styles */
+    .hamburger {
+      display: none;
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .main-nav {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+      .news-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <!-- AMP Boilerplate -->
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+</head>
+<body>
+  <amp-sidebar id="sidebar" layout="nodisplay" side="right">
+    <nav class="sidebar-nav">
+      <button on="tap:sidebar.close" class="close-btn">×</button>
+      <a href="#" class="nav-link">Beranda</a>
+      <a href="#" class="nav-link">Politik</a>
+      <a href="#" class="nav-link">Bisnis</a>
+      <a href="#" class="nav-link">Teknologi</a>
+      <a href="#" class="nav-link">Olahraga</a>
+    </nav>
+  </amp-sidebar>
+
+  <header class="header">
+    <button class="hamburger" on="tap:sidebar.toggle">☰</button>
+    <div class="logo">NewsHub</div>
+    <div class="date-time">Sabtu, 16 Maret 2024 | 09:30 WIB</div>
+    <nav class="main-nav">
+      <a href="#" class="nav-link">Terbaru</a>
+      <a href="#" class="nav-link">Trending</a>
+      <a href="#" class="nav-link">Video</a>
+      <a href="#" class="nav-link">Kolom</a>
+      <a href="#" class="nav-link">Infografis</a>
+    </nav>
+  </header>
+
+  <div class="breaking-news">
+    🔥 BREAKING: Gempa 6.2 SR Guncang Jawa Barat, Belum Ada Laporan Korban
+  </div>
+
+  <amp-carousel class="featured-carousel" width="1200" height="675" layout="responsive" type="slides">
+    <div class="carousel-item">
+      <amp-img src="https://images.unsplash.com/photo-1586339949916-3e9457bef6d3?w=1200"
+        width="1200"
+        height="675"
+        layout="responsive"
+        alt="Pemilu 2024">
+      </amp-img>
+      <div class="carousel-caption">
+        <h2>Hasil Quick Count Pemilu 2024: Paslon Nomor 2 Unggul Tipis</h2>
+        <p>Data real-time dari 85% TPS menunjukkan persaingan ketat antar kandidat</p>
+      </div>
+    </div>
+    
+    <div class="carousel-item">
+      <amp-img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200"
+        width="1200"
+        height="675"
+        layout="responsive"
+        alt="Teknologi AI">
+      </amp-img>
+      <div class="carousel-caption">
+        <h2>Revolusi AI: Teknologi Baru Bisa Baca Pikiran Manusia</h2>
+        <p>Peneliti mengklaim akurasi mencapai 85% dalam uji coba terbaru</p>
+      </div>
+    </div>
+  </amp-carousel>
+
+  <div class="news-grid">
+    <article class="news-card">
+      <div class="category-label">Ekonomi</div>
+      <amp-img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800"
+        width="800"
+        height="450"
+        layout="responsive"
+        alt="Grafik Saham">
+      </amp-img>
+      <div class="card-content">
+        <h3>IHSG Tembus 7.400, Rekor Tertinggi Sepanjang Sejarah</h3>
+        <p class="article-meta">Oleh: Jane Smith | 16 Maret 2024</p>
+        <p>Penguatan Rupiah dan optimisme pasar dorong indeks saham ke level baru...</p>
+      </div>
+    </article>
+
+    <article class="news-card">
+      <div class="category-label">Teknologi</div>
+      <amp-img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800"
+        width="800"
+        height="450"
+        layout="responsive"
+        alt="Robot AI">
+      </amp-img>
+      <div class="card-content">
+        <h3>Robot Humanoid Ini Bisa Bekerja 24 Jam Tanpa Istirahat</h3>
+        <p class="article-meta">Oleh: Ahmad Budi | 16 Maret 2024</p>
+        <p>Perusahaan startup Indonesia kembangkan robot untuk industri manufaktur...</p>
+      </div>
+    </article>
+  </div>
+
+  <amp-accordion>
+    <section expanded>
+      <h4>Komentar Pembaca</h4>
+      <div>
+        <p>Budi: Artikelnya sangat informatif!</p>
+        <p>Ani: Menarik, tapi perlu data lebih akurat</p>
+      </div>
+    </section>
+  </amp-accordion>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h4>Tentang Kami</h4>
+        <p>NewsHub - Media Independen Terpercaya</p>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <p>redaksi@newshub.id</p>
+        <p>021-12345678</p>
+      </div>
+      <div>
+        <h4>Sosial Media</h4>
+        <p>Twitter: @NewsHubID</p>
+        <p>Instagram: @NewsHubID</p>
+      </div>
+    </div>
+    <p class="copyright">© 2024 NewsHub. All rights reserved</p>
+  </footer>
+</body>
+</html>
